@@ -1,4 +1,4 @@
-import clc from 'cli-color';
+import clc        from 'cli-color';
 
 export default {
 	

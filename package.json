@@ -28,6 +28,7 @@
   "license": "MIT",
   "dependencies": {
     "cli-color": "^1.2.0",
+    "deep-extend": "^0.6.0",
     "moment": "^2.22.2"
   },
   "devDependencies": {
