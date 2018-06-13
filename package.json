@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "rimraf ./dist",
-    "build": "babel src -d ./dist -s --ignore test.js"
+    "build": "babel src -d ./dist -s --ignore test.js",
+    "precommit": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -42,5 +43,71 @@
   "bugs": {
     "url": "https://github.com/Goodluckhf/BunyanStdoutStream/issues"
   },
-  "homepage": "https://github.com/Goodluckhf/BunyanStdoutStream#readme"
+  "homepage": "https://github.com/Goodluckhf/BunyanStdoutStream#readme",
+  "lint-staged": {
+    "*.js": "eslint"
+  },
+  "eslintIgnore": [
+    "flow-typed/*"
+  ],
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "eslint-config-airbnb-base",
+      "plugin:flowtype/recommended"
+    ],
+    "parser": "babel-eslint",
+    "plugins": [
+      "flowtype"
+    ],
+    "rules": {
+      "no-multi-spaces": 0,
+      "indent": [
+        "error",
+        "tab"
+      ],
+      "no-tabs": 0,
+      "key-spacing": [
+        "error",
+        {
+          "align": {
+            "beforeColon": false,
+            "afterColon": true,
+            "on": "colon"
+          }
+        }
+      ],
+      "spaced-comment": 0,
+      "no-trailing-spaces": 0,
+      "arrow-body-style": [
+        1,
+        "as-needed"
+      ],
+      "flowtype/space-before-type-colon": 0,
+      "flowtype/space-after-type-colon": 0
+    }
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          },
+          "useBuiltIns": "usage",
+          "loose": true
+        }
+      ],
+      "flow"
+    ],
+    "plugins": [
+      [
+        "syntax-object-rest-spread"
+      ]
+    ]
+  }
 }
