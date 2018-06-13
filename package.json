@@ -1,0 +1,29 @@
+{
+  "name": "bunyan-stdout-stream",
+  "version": "1.0.0",
+  "description": "stdout pretty print, human readable stream for bunyan",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Goodluckhf/BunyanStdoutStream.git"
+  },
+  "keywords": [
+    "bunyan",
+    "stdout",
+    "logs",
+    "stream",
+    "bunyan",
+    "stream",
+    "stdout",
+    "logs"
+  ],
+  "author": "Goodluckhf <Goodluckhf@yandex.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Goodluckhf/BunyanStdoutStream/issues"
+  },
+  "homepage": "https://github.com/Goodluckhf/BunyanStdoutStream#readme"
+}
