@@ -1,9 +1,9 @@
-import clc        from 'cli-color';
+import clc from 'cli-color';
 
 export default {
 	
 	// Maximum nested object parsing
-	maxDepths: 5,
+	maxDepth: 5,
 	
 	colors: {
 		date: date => clc.blackBright(date),
@@ -29,7 +29,7 @@ export default {
 		object: {
 			
 			// Indent (like "\n| ")
-			indent: (count = 0, isEOL = true) => {
+			indent: (count = 1, isEOL = true) => {
 				const line = count % 2 !== 0 ? '|' : '¦';
 				return isEOL ? `\n${line} ` : `${line} `;
 			},
@@ -44,7 +44,7 @@ export default {
 	
 	// Default bunyan keys
 	// These keys will not apear in 1st level
-	ExcludeKeys: ['name', 'hostname', 'pid', 'v', 'time', 'msg', 'level', 'message'],
+	excludeKeys: ['name', 'hostname', 'pid', 'v', 'time', 'msg', 'level', 'message'],
 	
 	
 	// replacing paths in errors stack

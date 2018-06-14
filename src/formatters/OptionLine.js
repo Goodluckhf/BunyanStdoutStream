@@ -1,16 +1,13 @@
-import moment from 'moment';
+import moment        from 'moment';
+import BaseFormatter from './BaseFormatter';
 
-export default class {
-	constructor(config) {
-		this.config = config;
-	}
-	
+export default class OptionLineFormatter extends BaseFormatter {
 	format(data) {
 		const timeString = moment(data.time).format('MM.DD HH:mm:ss');
 		const source =
 				(((new Error().stack)
 					.split(/\n\s*[at]*\s*/g))[5])
-					.replace(`${process.cwd()}/`, '')
+					.replace(`${process.cwd()}/`, this.config.baseDir)
 					.match(/\(?(\S*:\d+:\d+)\)?/)[1];
 		
 		return  `${this.config.colors[data.level].level} ` + // Log level

@@ -32,6 +32,9 @@
     "moment": "^2.22.2"
   },
   "devDependencies": {
+    "babel-plugin-syntax-object-rest-spread": "^6.13.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
     "babel-eslint": "^8.2.3",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
@@ -81,6 +84,12 @@
           }
         }
       ],
+      "no-underscore-dangle": [
+        "error",
+        {
+          "allowAfterThis": true
+        }
+      ],
       "spaced-comment": 0,
       "no-trailing-spaces": 0,
       "arrow-body-style": [
@@ -102,8 +111,7 @@
           "useBuiltIns": "usage",
           "loose": true
         }
-      ],
-      "flow"
+      ]
     ],
     "plugins": [
       [
