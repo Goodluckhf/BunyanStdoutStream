@@ -7,7 +7,7 @@ export default class ObjectFormatter extends BaseFormatter {
 			
 			const indentString  = this._buildIndentString(depth + 1);
 			const displayString = formatVariable(value, depth + 1);
-			return `${str}${indentString}${this.config.colors.object.key(key, 1)}: ${displayString}`;
+			return `${str}${indentString}${this.config.colors.object.key(key, depth)}: ${displayString}`;
 		}, '');
 	}
 }

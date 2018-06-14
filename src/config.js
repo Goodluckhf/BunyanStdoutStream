@@ -35,7 +35,9 @@ export default {
 			},
 			
 			// Object key
-			key: key => clc.cyan(key),
+			key: (key, count) => {
+				return count % 2 === 0 ? clc.cyan(key) : clc.cyanBright(key);
+			},
 			
 			// System value (null, undefined...)
 			system: val => clc.yellowBright(val),
