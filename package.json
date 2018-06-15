@@ -4,8 +4,8 @@
   "description": "stdout pretty print, human readable stream for bunyan",
   "main": "dist/index.js",
   "scripts": {
-    "test": "mocha --ui bdd --reporter spec --require babel-register ./test/*.test.js",
-    "coverage": "nyc --reporter=text --require babel-register mocha --ui bdd --reporter spec --require babel-register ./test/*.test.js",
+    "test": "mocha --ui bdd --reporter spec --require babel-register ./test/*.test.js ./test/**/*.test.js",
+    "coverage": "nyc --reporter=text --require babel-register mocha --ui bdd --reporter spec --require babel-register ./test/*.test.js ./test/**/*.test.js",
     "prebuild": "rimraf ./dist",
     "build": "babel src -d ./dist -s --ignore test.js",
     "precommit": "lint-staged"
@@ -34,6 +34,7 @@
     "nyc": "^12.0.2"
   },
   "devDependencies": {
+    "lodash": "^4.17.10",
     "mocha": "^5.2.0",
     "chai": "^4.1.2",
     "babel-plugin-syntax-object-rest-spread": "^6.13.0",
