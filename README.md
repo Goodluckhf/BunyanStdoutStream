@@ -42,7 +42,7 @@ const logger = bunyan.createLogger({
 
 ## Customisation
 
-You can customize colors by put your config:
+You can customize colors and other options by putting your config, which will be deeply merge with default config:
 
 ```javascript
 new StdoutStream({
@@ -61,7 +61,7 @@ import BaseFormatter from 'bunyan-stdout-stream/formatters/BaseFormatter';
 
 class CustomErrorFormatter extends BaseFormatter {
 	// The only method you have to define
-	write(error) {
+	format(error) {
 		return error.toString();
 	}
 }
