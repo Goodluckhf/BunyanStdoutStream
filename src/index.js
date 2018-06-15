@@ -38,7 +38,7 @@ export default class BunyanStdoutStream {
 		}, {});
 	}
 	
-	formatVariable(variable, depth) {
+	formatVariable(variable, depth = 0) {
 		if (depth === this.config.maxDepth) {
 			return this.config.colors.object.system('Max depth');
 		}
