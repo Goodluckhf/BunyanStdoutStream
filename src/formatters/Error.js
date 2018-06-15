@@ -17,6 +17,10 @@ export default class ErrorFormatter extends BaseFormatter {
 	 * @returns {string}
 	 */
 	format(data, depth, formatVariable) {
+		if (!(data instanceof Error)) {
+			throw new Error('The type of value should be "Error"');
+		}
+		
 		// eslint-disable-next-line no-use-before-define
 		const keyValuesString = formatVariable({
 			message: data.message,
