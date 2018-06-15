@@ -1,5 +1,7 @@
 # BunyanStdoutStream
 
+![Build status](https://travis-ci.org/Goodluckhf/BunyanStdoutStream.svg?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/Goodluckhf/BunyanStdoutStream/badge.svg?branch=master)](https://coveralls.io/github/Goodluckhf/BunyanStdoutStream?branch=master)
 During developing you usually put logs to stdout.
 But it's very uncomfortable to read default bunyan logs.
 So I've developed `StdoutStream` for bunyan which will prettify your logs.
