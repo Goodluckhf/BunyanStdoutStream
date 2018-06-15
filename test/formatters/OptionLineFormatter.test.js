@@ -18,9 +18,14 @@ describe('OptionLineFormatter', function () {
 		};
 	});
 	
+	it('result should be a string', () => {
+		const result = this.formatter.format(this.data);
+		expect(result).to.be.a('string');
+	});
+	
 	it('result string should include msg', () => {
 		const result = this.formatter.format(this.data);
-		expect(result).to.be.a('string').and.to.include(this.data.msg);
+		expect(result).to.include(this.data.msg);
 	});
 	
 	it('result string should include replaced base directory', () => {
