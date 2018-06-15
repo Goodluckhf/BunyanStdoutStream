@@ -6,7 +6,7 @@ export default class OptionLineFormatter extends BaseFormatter {
 		const timeString = moment(data.time).format('MM.DD HH:mm:ss');
 		const source =
 				(((new Error().stack)
-					.split(/\n\s*[at]*\s*/g))[5])
+					.split(/\n\s*[at]*\s*/g))[6])
 					.replace(`${process.cwd()}/`, this.config.baseDir)
 					.match(/\(?(\S*:\d+:\d+)\)?/)[1];
 		
