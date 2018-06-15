@@ -4,7 +4,7 @@
   "description": "stdout pretty print, human readable stream for bunyan",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --require babel-register ./test/*.js",
     "prebuild": "rimraf ./dist",
     "build": "babel src -d ./dist -s --ignore test.js",
     "precommit": "lint-staged"
@@ -32,6 +32,8 @@
     "moment": "^2.22.2"
   },
   "devDependencies": {
+    "mocha": "^5.2.0",
+    "chai": "^4.1.2",
     "babel-plugin-syntax-object-rest-spread": "^6.13.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",

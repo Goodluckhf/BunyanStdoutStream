@@ -30,4 +30,5 @@ error.a = {
 error.isMessage = false;
 logger.error({ error });
 logger.warn({ error });
+logger.info('test');
 logger.info({ error });
