@@ -124,7 +124,10 @@
     ],
     "plugins": [
       [
-        "syntax-object-rest-spread"
+        "syntax-object-rest-spread",
+        {
+          "useBuiltIns": true
+        }
       ]
     ]
   }
