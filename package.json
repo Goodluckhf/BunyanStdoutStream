@@ -4,7 +4,8 @@
   "description": "stdout pretty print, human readable stream for bunyan",
   "main": "dist/index.js",
   "scripts": {
-    "test": "mocha --require babel-register ./test/*.js",
+    "test": "mocha --ui bdd --reporter spec --require babel-register ./test/*.js",
+    "coverage": "nyc --reporter=text --require babel-register mocha --ui bdd --reporter spec --require babel-register ./test/*.js",
     "prebuild": "rimraf ./dist",
     "build": "babel src -d ./dist -s --ignore test.js",
     "precommit": "lint-staged"
@@ -29,7 +30,8 @@
   "dependencies": {
     "cli-color": "^1.2.0",
     "deep-extend": "^0.6.0",
-    "moment": "^2.22.2"
+    "moment": "^2.22.2",
+    "nyc": "^12.0.2"
   },
   "devDependencies": {
     "mocha": "^5.2.0",

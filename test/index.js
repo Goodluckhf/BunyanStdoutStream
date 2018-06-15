@@ -1,7 +1,8 @@
 import bunyan       from 'bunyan';
 
-import { expect }          from 'chai';
-import StdoutStream        from '../src';
+import { expect }   from 'chai';
+import clc          from 'cli-color';
+import StdoutStream from '../src';
 
 describe('integration with bunyan', () => {
 	it('Should not throw error', () => {
@@ -28,5 +29,17 @@ describe('Config', () => {
 		
 		const stdoutStream = new StdoutStream({}, { OptionLineFormatter: CustomFormatter });
 		expect(stdoutStream.optionLineFormatter).to.be.instanceOf(CustomFormatter);
+	});
+	
+	it('config color can be change', () => {
+		const stdoutStream = new StdoutStream({
+			colors: {
+				30: {
+					level: clc.red('test'),
+				},
+			},
+		});
+		
+		expect(stdoutStream.config.colors[30].level).to.be.equal(clc.red('test'));
 	});
 });
