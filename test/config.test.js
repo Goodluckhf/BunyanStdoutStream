@@ -1,27 +1,7 @@
-import bunyan       from 'bunyan';
-
-import { expect }   from 'chai';
 import clc          from 'cli-color';
-import StdoutStream from '../src';
+import { expect }   from 'chai';
 
-describe('integration with bunyan', () => {
-	it('Should not throw error', () => {
-		const createLogger = () => {
-			bunyan.createLogger({
-				name   : 'logger',
-				streams: [
-					{
-						level : 'trace',
-						type  : 'raw',
-						stream: new StdoutStream(),
-					},
-				],
-			});
-		};
-		
-		expect(createLogger).to.not.throw();
-	});
-});
+import StdoutStream from '../src';
 
 describe('Config', () => {
 	it('Formatter can be changed from config', () => {
