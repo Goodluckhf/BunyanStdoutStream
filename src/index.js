@@ -70,17 +70,21 @@ export default class BunyanStdoutStream {
 		return variable;
 	}
 	
-	write(data) {
+	createStringFromVariable(data) {
+		let resultString = '';
 		const optionLine = this.optionLineFormatter.format(data);
-		this.stream.write(`${optionLine}`);
+		resultString = `${resultString}${optionLine}`;
 		
 		const objectForDisplay = this[excludeDefaultKeysS](data);
 		if (Object.keys(objectForDisplay).length === 0) {
-			this.stream.write('\n');
-			return;
+			return `${resultString}\n`;
 		}
 		
-		this.stream.write(this.formatVariable(objectForDisplay, 0));
-		this.stream.write('\n');
+		resultString = `${resultString}${this.formatVariable(objectForDisplay, 0)}`;
+		return `${resultString}\n`;
+	}
+	
+	write(data) {
+		this.stream.write(this.createStringFromVariable(data));
 	}
 }

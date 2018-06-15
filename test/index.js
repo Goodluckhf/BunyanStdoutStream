@@ -32,14 +32,15 @@ describe('Config', () => {
 	});
 	
 	it('config color can be change', () => {
+		const expectedValue = clc.red('test');
 		const stdoutStream = new StdoutStream({
 			colors: {
 				30: {
-					level: clc.red('test'),
+					level: expectedValue,
 				},
 			},
 		});
 		
-		expect(stdoutStream.config.colors[30].level).to.be.equal(clc.red('test'));
+		expect(stdoutStream.config.colors[30].level).to.be.equal(expectedValue);
 	});
 });
