@@ -43,23 +43,31 @@ export default class BunyanStdoutStream {
 			return this.config.colors.object.system('Max depth');
 		}
 		
-		let displayString = '';
 		if (Array.isArray(variable)) {
-			displayString = this.arrayFormatter.format(variable, depth, this.formatVariable.bind(this));
-		} else if (variable instanceof Error) {
-			displayString = this.errorFormatter.format(variable, depth, this.formatVariable.bind(this));
-		} else if (variable === null) {
-			displayString = this.config.colors.object.system('null');
-		} else if (typeof variable === 'undefined') {
-			displayString = this.config.colors.object.system('undefined');
-		} else if (typeof variable === 'function') {
-			displayString = this.config.colors.object.system('Function');
-		} else if (typeof variable === 'object') {
-			displayString = this.objectFormatter.format(variable, depth, this.formatVariable.bind(this));
-		}  else {
-			displayString = variable;
+			return this.arrayFormatter.format(variable, depth, this.formatVariable.bind(this));
 		}
-		return displayString;
+		
+		if (variable instanceof Error) {
+			return this.errorFormatter.format(variable, depth, this.formatVariable.bind(this));
+		}
+		
+		if (variable === null) {
+			return this.config.colors.object.system('null');
+		}
+		
+		if (typeof variable === 'undefined') {
+			return this.config.colors.object.system('undefined');
+		}
+		
+		if (typeof variable === 'function') {
+			return this.config.colors.object.system('Function');
+		}
+		
+		if (typeof variable === 'object') {
+			return this.objectFormatter.format(variable, depth, this.formatVariable.bind(this));
+		}
+		
+		return variable;
 	}
 	
 	write(data) {
