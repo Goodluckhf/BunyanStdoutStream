@@ -1,6 +1,8 @@
 # BunyanStdoutStream
-[![Build Status](https://travis-ci.org/Goodluckhf/BunyanStdoutStream.svg?branch=master)](https://travis-ci.org/Goodluckhf/BunyanStdoutStream)
-[![Coverage Status](https://coveralls.io/repos/github/Goodluckhf/BunyanStdoutStream/badge.svg?branch=master)](https://coveralls.io/github/Goodluckhf/BunyanStdoutStream?branch=master)
+
+![Travis](https://img.shields.io/travis/Goodluckhf/BunyanStdoutStream/master.svg?style=for-the-badge)
+![Coveralls github branch](https://img.shields.io/coveralls/github/Goodluckhf/BunyanStdoutStream/master.svg?style=for-the-badge)
+![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=for-the-badge)
 
 During developing you usually put logs to stdout.
 But it's very uncomfortable to read default bunyan logs.
