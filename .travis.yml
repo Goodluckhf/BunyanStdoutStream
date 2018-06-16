@@ -3,18 +3,27 @@ language: node_js
 cache:
   directories:
     - node_modules
-node_js:
-  - '8'
-  - '7'
-  - '6'
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
-before_script:
-  - npm prune
-script:
-  - npm run build
-  - npm run test:coverage
-after_success:
-  - npm run report-coverage
-  - npm run semantic-release
+stages:
+  - test
+  - release
+jobs:
+  include:
+    - stage: test
+    node_js:
+      - '8'
+      - '7'
+      - '6'
+    before_script:
+      - npm prune
+    script:
+      - npm run build
+      - npm run test:coverage
+    after_success:
+      - npm run report-coverage
+    - stage: release
+    node_js: '8'
+    script:
+      - ls -la ./dist
