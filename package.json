@@ -132,5 +132,14 @@
   "files": [
     "dist/*.*",
     "dist/**/*.*"
-  ]
+  ],
+  "release": {
+    "analyzeCommits": {
+      "preset": "angular",
+      "releaseRules": [
+        {"type": "docs", "release": "patch"},
+        {"type": "refactor", "release": "patch"}
+      ]
+    }
+  }
 }
