@@ -26,4 +26,4 @@ jobs:
       node_js: '8'
       script:
         - npm run build
-        - ls -la ./dist
+        - npm run semantic-release
