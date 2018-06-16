@@ -1,16 +1,18 @@
 # BunyanStdoutStream
 
-![Travis](https://img.shields.io/travis/Goodluckhf/BunyanStdoutStream/master.svg?style=for-the-badge)
-![Coveralls github branch](https://img.shields.io/coveralls/github/Goodluckhf/BunyanStdoutStream/master.svg?style=for-the-badge)
-![license](https://img.shields.io/github/license/Goodluckhf/BunyanStdoutStream.svg?style=for-the-badge)
-![node](https://img.shields.io/node/v/bunyan-stdout-stream.svg?style=for-the-badge)
-![npm](https://img.shields.io/npm/v/bunyan-stdout-stream.svg?style=for-the-badge)
-![David](https://img.shields.io/david/Goodluckhf/BunyanStdoutStream.svg?style=for-the-badge)
-![David](https://img.shields.io/david/dev/Goodluckhf/BunyanStdoutStream.svg?style=for-the-badge)
-![GitHub top language](https://img.shields.io/github/languages/top/Goodluckhf/BunyanStdoutStream.svg?style=for-the-badge)
-![GitHub last commit](https://img.shields.io/github/last-commit/Goodluckhf/BunyanStdoutStream.svg?style=for-the-badge)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Goodluckhf/BunyanStdoutStream.svg?style=for-the-badge)
-![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=for-the-badge)
+![Travis](https://img.shields.io/travis/Goodluckhf/BunyanStdoutStream/master.svg?style=flat-square)
+![Coveralls github branch](https://img.shields.io/coveralls/github/Goodluckhf/BunyanStdoutStream/master.svg?style=flat-square)
+![node](https://img.shields.io/node/v/bunyan-stdout-stream.svg?style=flat-square)
+![npm](https://img.shields.io/npm/v/bunyan-stdout-stream.svg?style=flat-square)
+
+![GitHub top language](https://img.shields.io/github/languages/top/Goodluckhf/BunyanStdoutStream.svg?style=flat-square)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Goodluckhf/BunyanStdoutStream.svg?style=flat-square)
+![David](https://img.shields.io/david/Goodluckhf/BunyanStdoutStream.svg?style=flat-square)
+![David](https://img.shields.io/david/dev/Goodluckhf/BunyanStdoutStream.svg?style=flat-square)
+
+![license](https://img.shields.io/github/license/Goodluckhf/BunyanStdoutStream.svg?style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/Goodluckhf/BunyanStdoutStream.svg?style=flat-square)
+![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)
 
 
 
