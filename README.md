@@ -7,9 +7,9 @@
 ![npm](https://img.shields.io/npm/v/bunyan-stdout-stream.svg?style=for-the-badge)
 ![David](https://img.shields.io/david/Goodluckhf/BunyanStdoutStream.svg?style=for-the-badge)
 ![David](https://img.shields.io/david/dev/Goodluckhf/BunyanStdoutStream.svg?style=for-the-badge)
-![GitHub top language](https://img.shields.io/github/languages/top/Goodluckhf/BunyanStdoutStream.svg)
-![GitHub last commit](https://img.shields.io/github/last-commit/Goodluckhf/BunyanStdoutStream.svg)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Goodluckhf/BunyanStdoutStream.svg)
+![GitHub top language](https://img.shields.io/github/languages/top/Goodluckhf/BunyanStdoutStream.svg?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/Goodluckhf/BunyanStdoutStream.svg?style=for-the-badge)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Goodluckhf/BunyanStdoutStream.svg?style=for-the-badge)
 ![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=for-the-badge)
 
 
