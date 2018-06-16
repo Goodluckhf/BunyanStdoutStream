@@ -8,7 +8,8 @@ branches:
     - /^v\d+\.\d+\.\d+$/
 stages:
   - test
-  - release
+  - name: release
+    if: branch = master
 jobs:
   include:
     - stage: test
