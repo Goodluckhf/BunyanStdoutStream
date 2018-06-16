@@ -2,7 +2,12 @@
 
 ![Travis](https://img.shields.io/travis/Goodluckhf/BunyanStdoutStream/master.svg?style=for-the-badge)
 ![Coveralls github branch](https://img.shields.io/coveralls/github/Goodluckhf/BunyanStdoutStream/master.svg?style=for-the-badge)
-![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=for-the-badge)
+![license](https://img.shields.io/github/license/Goodluckhf/BunyanStdoutStream.svg?style=for-the-badge)
+![node](https://img.shields.io/node/v/bunyan-stdout-stream.svg?style=for-the-badge)
+![npm](https://img.shields.io/npm/v/bunyan-stdout-stream.svg?style=for-the-badge)
+![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=for-the-badge)
+
+
 
 During developing you usually put logs to stdout.
 But it's very uncomfortable to read default bunyan logs.
