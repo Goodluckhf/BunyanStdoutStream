@@ -2,7 +2,7 @@
   "name": "bunyan-stdout-stream",
   "version": "1.0.0",
   "description": "stdout pretty print, human readable stream for bunyan",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "mocha --ui bdd --reporter spec --require babel-register ./test/*.test.js ./test/**/*.test.js",
     "test:coverage:dev": "nyc --reporter=text --require babel-register mocha --ui bdd --reporter spec --require babel-register ./test/*.test.js ./test/**/*.test.js",
@@ -10,7 +10,8 @@
     "report-coverage": "cat coverage/lcov.info | coveralls",
     "prebuild": "rimraf ./dist",
     "build": "babel src -d ./dist -s --ignore test.js",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "semantic-release": "cp package.json ./dist && cd ./dist && semantic-release"
   },
   "engines": {
     "node": ">=6.10.0"
@@ -64,22 +65,15 @@
   "lint-staged": {
     "*.js": "eslint"
   },
-  "eslintIgnore": [
-    "flow-typed/*"
-  ],
   "eslintConfig": {
     "root": true,
     "env": {
       "node": true
     },
     "extends": [
-      "eslint-config-airbnb-base",
-      "plugin:flowtype/recommended"
+      "eslint-config-airbnb-base"
     ],
     "parser": "babel-eslint",
-    "plugins": [
-      "flowtype"
-    ],
     "rules": {
       "no-multi-spaces": 0,
       "indent": [
@@ -138,5 +132,14 @@
   "files": [
     "dist/*.*",
     "dist/**/*.*"
-  ]
+  ],
+  "release": {
+    "analyzeCommits": {
+      "preset": "angular",
+      "releaseRules": [
+        {"type": "docs", "release": "patch"},
+        {"type": "refactor", "release": "patch"}
+      ]
+    }
+  }
 }
