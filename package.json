@@ -2,7 +2,7 @@
   "name": "bunyan-stdout-stream",
   "version": "1.0.0",
   "description": "stdout pretty print, human readable stream for bunyan",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "mocha --ui bdd --reporter spec --require babel-register ./test/*.test.js ./test/**/*.test.js",
     "test:coverage:dev": "nyc --reporter=text --require babel-register mocha --ui bdd --reporter spec --require babel-register ./test/*.test.js ./test/**/*.test.js",
