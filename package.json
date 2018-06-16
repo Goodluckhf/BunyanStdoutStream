@@ -11,8 +11,7 @@
     "prebuild": "rimraf ./dist",
     "build": "babel src -d ./dist -s --ignore test.js",
     "precommit": "lint-staged",
-    "semantic-release": "cp package.json ./dist && semantic-release",
-    "postpublish": "cp -r dist/package.json ."
+    "semantic-release": "cp package.json ./dist && semantic-release"
   },
   "engines": {
     "node": ">=6.10.0"
