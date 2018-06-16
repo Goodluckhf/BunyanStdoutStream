@@ -26,4 +26,4 @@ jobs:
     - stage: release
     node_js: '8'
     script:
-      - ls -la ./dist
+      - 'ls -la ./dist'
