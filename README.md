@@ -22,10 +22,10 @@ So I've developed `StdoutStream` for bunyan which will prettify your logs.
 
 ## Example
 
-![example](/example.png)
+![example](/docs/example.png)
 
 will printed in your terminal:
-![example](/example_terminal.png)
+![example](/docs/example_terminal.png)
 
 ## Install
 1. install via npm
