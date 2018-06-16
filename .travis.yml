@@ -27,4 +27,4 @@ jobs:
       node_js: '8'
       script:
         - npm run build
-        - npx semantic-release
+        - semantic-release

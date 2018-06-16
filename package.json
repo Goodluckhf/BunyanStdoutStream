@@ -10,7 +10,8 @@
     "report-coverage": "cat coverage/lcov.info | coveralls",
     "prebuild": "rimraf ./dist",
     "build": "babel src -d ./dist -s --ignore test.js",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "semantic-release": "cp package.json ./dist && cd ./dist && semantic-release"
   },
   "engines": {
     "node": ">=6.10.0"
@@ -64,22 +65,15 @@
   "lint-staged": {
     "*.js": "eslint"
   },
-  "eslintIgnore": [
-    "flow-typed/*"
-  ],
   "eslintConfig": {
     "root": true,
     "env": {
       "node": true
     },
     "extends": [
-      "eslint-config-airbnb-base",
-      "plugin:flowtype/recommended"
+      "eslint-config-airbnb-base"
     ],
     "parser": "babel-eslint",
-    "plugins": [
-      "flowtype"
-    ],
     "rules": {
       "no-multi-spaces": 0,
       "indent": [
