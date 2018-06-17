@@ -24,13 +24,13 @@ So I've developed `StdoutStream` for bunyan which will prettify your logs.
 
 ![example](/docs/example.png)
 
-will printed in your terminal:
+will print in your terminal:
 ![example](/docs/example_terminal.png)
 
 ## Install
 1. install via npm
 ```bash
-$ npm i bunyan-stdout-stream
+$ npm i bunyan-stdout-stream --save-dev
 ```
 
 2. instsall bunyan logger
@@ -45,14 +45,12 @@ import StdoutStream from 'bunyan-stdout-stream';
 import bunyan       from 'bunyan';
 
 const logger = bunyan.createLogger({
-	name   : 'exampleLogger',
-	streams: [
-		{
-			level : 'trace',
-			type  : 'raw',
-			stream: new StdoutStream(),
-		},
-	]
+    name   : 'exampleLogger',
+    streams: [{
+        level : 'trace',
+        type  : 'raw',
+        stream: new StdoutStream(),
+    }]
 });
 ```
 
@@ -64,7 +62,7 @@ You can customize colors and other options by putting your config, which will be
 new StdoutStream({
     maxDepth: 7,
     colors: {
-    	date: date => date
+        date: date => date
     },
 })
 ```
@@ -76,14 +74,14 @@ You have to extend it from `BaseFormatter`:
 import BaseFormatter from 'bunyan-stdout-stream/formatters/BaseFormatter';
 
 class CustomErrorFormatter extends BaseFormatter {
-	// The only method you have to define
-	format(error) {
-		return error.toString();
-	}
+    // The only method you have to define
+    format(error) {
+        return error.toString();
+    }
 }
 
 new StdoutStream({}, {
-	errorFormatter: CustomErrorFormatter
+    ErrorFormatter: CustomErrorFormatter
 });
 ```
 List of formatters: 
