@@ -67,6 +67,10 @@ export default class BunyanStdoutStream {
 			return this.objectFormatter.format(variable, depth, this.formatVariable.bind(this));
 		}
 		
+		if (typeof  variable === 'string') {
+			return `"${variable}"`;
+		}
+		
 		return variable;
 	}
 	
