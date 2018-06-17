@@ -20,6 +20,15 @@ export default class ErrorFormatter extends BaseFormatter {
 		if (!(data instanceof Error)) {
 			throw new Error('The type of value should be "Error"');
 		}
+		// stack can be present in different key
+		const stackKey = Object.keys(data).find((key) => {
+			return /^stack/.test(key) && typeof data[key] === 'string';
+		});
+		
+		if (stackKey) {
+			// eslint-disable-next-line no-param-reassign
+			data[stackKey] = this.formatErrorStack(data[stackKey], depth + 1);
+		}
 		
 		// eslint-disable-next-line no-use-before-define
 		const keyValuesString = formatVariable({
