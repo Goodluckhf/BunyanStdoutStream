@@ -30,7 +30,6 @@ export default class ErrorFormatter extends BaseFormatter {
 			data[stackKey] = this.formatErrorStack(data[stackKey], depth + 1);
 		}
 		
-		// eslint-disable-next-line no-use-before-define
 		const keyValuesString = formatVariable({
 			message: data.message,
 			...data,
