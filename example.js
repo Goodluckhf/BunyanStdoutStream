@@ -29,8 +29,9 @@ const logger = bunyan.createLogger({
 		anotherSystemValue: undefined,
 	};
 	
-	logger.error({ error });
-	logger.warn({ error });
-	logger.info('test');
-	logger.info({ error });
+	logger.error({
+		error,
+		message     : 'log description',
+		anotherValue: 'string',
+	});
 }());
