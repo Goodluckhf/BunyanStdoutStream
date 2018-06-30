@@ -8,7 +8,7 @@ export default {
 	colors: {
 		date: date => clc.blackBright(date),
 		
-		stackHighlight: line => clc.blackBright(line),
+		stackHighlight: line => clc.xterm(203)(line),
 		
 		// info
 		30: {
