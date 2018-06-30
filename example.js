@@ -13,22 +13,24 @@ const logger = bunyan.createLogger({
 	],
 	serializers: bunyan.stdSerializers,
 });
-const error = new Error('Error here!');
-error.a = {
-	b: {
-		l: 10,
-	},
-	c: {
-		n: true,
-		g: 'sad',
-	},
-	d  : [1, 3, 'fi'],
-	sd : null,
-	lol: undefined,
-};
-
-error.isMessage = false;
-logger.error({ error });
-logger.warn({ error });
-logger.info('test');
-logger.info({ error });
+(function test() {
+	const error = new Error('Error here!');
+	error.a = {
+		b: {
+			l: 10,
+		},
+		c: {
+			n: true,
+			g: 'sad',
+		},
+		d  : [1, 3, 'fi'],
+		sd : null,
+		lol: undefined,
+	};
+	
+	error.isMessage = false;
+	logger.error({ error });
+	logger.warn({ error });
+	logger.info('test');
+	logger.info({ error });
+}());

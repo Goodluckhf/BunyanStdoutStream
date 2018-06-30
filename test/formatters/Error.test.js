@@ -1,7 +1,8 @@
 import { expect }     from 'chai';
+import { cloneDeep }  from 'lodash';
 
 import ErrorFormatter from '../../src/formatters/Error';
-import Stream from '../../src/index';
+import Stream         from '../../src/index';
 import config         from '../../src/config';
 
 describe('ErrorFormatter', function () {
@@ -28,5 +29,32 @@ describe('ErrorFormatter', function () {
 		const stream = new Stream(config);
 		const result = this.formatter.format(error, 0, stream.formatVariable.bind(stream));
 		expect(result).to.include('stackDifferent').and.not.include(process.cwd());
+	});
+	
+	it('should highlight stack line for current project', () => {
+		const error        = new Error('error here');
+		const clonedConfig = cloneDeep(config);
+		clonedConfig.colors.stackHighlight = line => `||${line}||`;
+		
+		const fileName = __filename.replace(`${process.cwd()}/`, '');
+		
+		const formatter = new ErrorFormatter(clonedConfig);
+		const stack     = formatter.formatErrorStack(error.stack);
+		const regExp    = new RegExp(`||.*${fileName}.*||`, 'mg');
+		const result    = regExp.test(stack);
+		
+		return expect(result).to.be.true;
+	});
+	
+	it('should not highlight stack for node_modules', () => {
+		const error        = new Error('error here');
+		const clonedConfig = cloneDeep(config);
+		clonedConfig.colors.stackHighlight = line => `||${line}||`;
+		
+		const formatter = new ErrorFormatter(clonedConfig);
+		const stack     = formatter.formatErrorStack(error.stack);
+		const result    = /\|\|.*node_modules.*\|\|/mg.test(stack);
+		
+		return expect(result).to.be.false;
 	});
 });

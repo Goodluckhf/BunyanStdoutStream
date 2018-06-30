@@ -8,6 +8,8 @@ export default {
 	colors: {
 		date: date => clc.blackBright(date),
 		
+		stackHighlight: line => clc.blackBright(line),
+		
 		// info
 		30: {
 			level : clc.bgBlue('i'),

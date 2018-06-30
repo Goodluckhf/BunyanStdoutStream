@@ -3,9 +3,15 @@ import BaseFormatter from './BaseFormatter';
 export default class ErrorFormatter extends BaseFormatter {
 	formatErrorStack(stack, depth) {
 		const stackArray = stack.split('\n').slice(1).map((stackItem) => {
-			return stackItem
+			const formattedStackItem = stackItem
 				.replace(`${process.cwd()}/`, this.config.baseDir)
-				.replace(/^\s*/, `${this._buildIndentString(depth + 1)}`);
+				.replace(/^\s*/g, `${this._buildIndentString(depth + 1)}`);
+			
+			if (stackItem.includes(process.cwd()) && !stackItem.includes('node_modules')) {
+				return this.config.colors.stackHighlight(formattedStackItem);
+			}
+			
+			return formattedStackItem;
 		});
 		return stackArray.join('');
 	}
