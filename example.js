@@ -13,22 +13,22 @@ const logger = bunyan.createLogger({
 	],
 	serializers: bunyan.stdSerializers,
 });
+
 (function test() {
 	const error = new Error('Error here!');
-	error.a = {
-		b: {
-			l: 10,
+	error.extraParams = {
+		testNestedObject: {
+			value: 10,
 		},
-		c: {
-			n: true,
-			g: 'sad',
+		otherNestedObject: {
+			value      : true,
+			stringValue: 'sad',
 		},
-		d  : [1, 3, 'fi'],
-		sd : null,
-		lol: undefined,
+		array             : [1, 3, 'fi'],
+		systemValue       : null,
+		anotherSystemValue: undefined,
 	};
 	
-	error.isMessage = false;
 	logger.error({ error });
 	logger.warn({ error });
 	logger.info('test');
