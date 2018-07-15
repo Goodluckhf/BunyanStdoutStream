@@ -1,7 +1,7 @@
 import BaseFormatter from './BaseFormatter';
 
 export default class ArrayFormatter extends BaseFormatter {
-	format(array) {
+	format(array, depth, formatVariable) {
 		if (!Array.isArray(array)) {
 			throw new Error('The type of value should be array');
 		}
@@ -11,7 +11,7 @@ export default class ArrayFormatter extends BaseFormatter {
 				return this.config.colors.object.system('Object');
 			}
 			
-			return item;
+			return formatVariable(item, depth + 1);
 		});
 		
 		return `[${arrayString.join(', ')}]`;
