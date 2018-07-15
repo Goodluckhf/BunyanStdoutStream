@@ -24,7 +24,7 @@ const logger = bunyan.createLogger({
 			value      : true,
 			stringValue: 'sad',
 		},
-		array             : [1, 3, 'fi'],
+		array             : [1, 3, 'fi', () => {}],
 		systemValue       : null,
 		anotherSystemValue: undefined,
 	};

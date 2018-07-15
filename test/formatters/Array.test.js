@@ -17,7 +17,7 @@ describe('Array formatter', function () {
 	});
 	
 	it('result should be a string', () => {
-		const result = this.formatter.format([1, 2]);
+		const result = this.formatter.format([1, 2], 1, value => value);
 		expect(result).to.be.a('string');
 	});
 	
