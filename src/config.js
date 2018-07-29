@@ -5,6 +5,9 @@ export default {
 	// Maximum nested object parsing
 	maxDepth: 5,
 	
+	// if set false array will be format not like object ([...])
+	convertArrayLikeObject: true,
+	
 	colors: {
 		date: date => clc.blackBright(date),
 		

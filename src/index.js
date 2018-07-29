@@ -15,7 +15,7 @@ const defaultFormatters = {
 const excludeDefaultKeysS = Symbol('excludeDefaultKeys');
 
 export default class BunyanStdoutStream {
-	constructor(config = {}, formatters = defaultFormatters) {
+	constructor(config = {}, formatters = defaultFormatters, stream = process.stdout) {
 		const formattersClasses = { ...defaultFormatters, ...formatters };
 		this.config             = deepExtend(defaultConfig, config);
 		
@@ -24,8 +24,7 @@ export default class BunyanStdoutStream {
 		this.errorFormatter      = new formattersClasses.ErrorFormatter(this.config);
 		this.objectFormatter     = new formattersClasses.ObjectFormatter(this.config);
 		
-		// maybe extract as dependency
-		this.stream = process.stdout;
+		this.stream = stream;
 	}
 	
 	[excludeDefaultKeysS](object) {
@@ -44,6 +43,10 @@ export default class BunyanStdoutStream {
 		}
 		
 		if (Array.isArray(variable)) {
+			if (this.config.convertArrayLikeObject) {
+				return this.objectFormatter.format(variable, depth, this.formatVariable.bind(this));
+			}
+			
 			return this.arrayFormatter.format(variable, depth, this.formatVariable.bind(this));
 		}
 		
@@ -89,6 +92,6 @@ export default class BunyanStdoutStream {
 	}
 	
 	write(data) {
-		this.stream.write(this.createStringFromVariable(data));
+		return this.stream.write(this.createStringFromVariable(data));
 	}
 }
