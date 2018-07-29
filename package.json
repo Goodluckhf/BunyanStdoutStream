@@ -34,8 +34,9 @@
   "author": "Goodluckhf <Goodluckhf@yandex.ru>",
   "license": "MIT",
   "dependencies": {
-    "cli-color": "^1.2.0",
-    "deep-extend": "^0.6.0"
+    "cli-color": "1.2.0",
+    "deep-extend": "0.6.0",
+    "moment": "2.22.2"
   },
   "devDependencies": {
     "nyc": "^12.0.2",
@@ -133,8 +134,14 @@
     "analyzeCommits": {
       "preset": "angular",
       "releaseRules": [
-        {"type": "docs", "release": "patch"},
-        {"type": "refactor", "release": "patch"}
+        {
+          "type": "docs",
+          "release": "patch"
+        },
+        {
+          "type": "refactor",
+          "release": "patch"
+        }
       ]
     },
     "pkgRoot": "dist"
