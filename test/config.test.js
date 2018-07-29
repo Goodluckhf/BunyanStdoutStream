@@ -34,4 +34,15 @@ describe('Config', () => {
 		expect(stdoutSteam.write({ level: 30, data: array }))
 			.to.be.equal(stdoutSteam.write({ level: 30, data: object }));
 	});
+	
+	it('result should not be formatted like object if config value set false', () => {
+		const object = { 0: 'test1', 1: { a: 'test2' } };
+		const array  = ['test1', { a: 'test2' }];
+		const stdoutSteam = new StdoutStream({
+			convertArrayLikeObject: false,
+		}, {}, { write: value => value });
+		
+		expect(stdoutSteam.write({ level: 30, data: array }))
+			.to.not.be.equal(stdoutSteam.write({ level: 30, data: object }));
+	});
 });
