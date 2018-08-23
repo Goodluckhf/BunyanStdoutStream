@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-
+import BSON       from 'bson';
 import BunyanStdoutStream from '../src';
 
 describe('BunyanStdoutStream', function () {
@@ -20,6 +20,14 @@ describe('BunyanStdoutStream', function () {
 			test : 123,
 		});
 		expect(result).to.be.a('string');
+	});
+	
+	
+	it('Should parse objectId string', () => {
+		const objectIdString = '5b6f28ac588b35524fd5edee';
+		const testValue = { id: BSON.ObjectId(objectIdString) };
+		const result    = this.bunyanStream.formatVariable(testValue);
+		expect(result).to.be.include(objectIdString);
 	});
 	
 	describe('method "formatVariable"', () => {

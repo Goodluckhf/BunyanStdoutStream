@@ -1,6 +1,8 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import bunyan from 'bunyan';
+import BSON from 'bson';
 import StdoutStream from './src/';
+
 
 const logger = bunyan.createLogger({
 	name   : 'exampleLogger',
@@ -17,6 +19,8 @@ const logger = bunyan.createLogger({
 (function test() {
 	const error = new Error('Error here!');
 	error.extraParams = {
+		_id: BSON.ObjectId('5b6f28ac588b35524fd5edee'),
+		
 		testNestedObject: {
 			value: 10,
 		},

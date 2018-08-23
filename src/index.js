@@ -1,4 +1,5 @@
 import deepExtend          from 'deep-extend';
+import BSON                from 'bson';
 import defaultConfig       from './config';
 import OptionLineFormatter from './formatters/OptionLine';
 import ArrayFormatter      from './formatters/Array';
@@ -64,6 +65,13 @@ export default class BunyanStdoutStream {
 		
 		if (typeof variable === 'function') {
 			return this.config.colors.object.system('Function');
+		}
+		
+		if (variable instanceof BSON.ObjectId) {
+			const startSequence = this.config.colors.object.system('ObjectId("');
+			const endSequence   = this.config.colors.object.system('")');
+			
+			return `${startSequence}${variable.toString()}${endSequence}`;
 		}
 		
 		if (typeof variable === 'object') {
