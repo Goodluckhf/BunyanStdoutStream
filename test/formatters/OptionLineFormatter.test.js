@@ -40,4 +40,15 @@ describe('OptionLineFormatter', function () {
 		const result = this.formatter.format(data);
 		expect(result).to.be.a('string').and.to.include(data.message);
 	});
+	
+	it('message can be taken from error property', () => {
+		const message = 'test_error_message';
+		const data = {
+			...this.data,
+			msg  : undefined,
+			error: new Error(message),
+		};
+		const result = this.formatter.format(data);
+		expect(result).to.include(message);
+	});
 });
