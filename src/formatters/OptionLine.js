@@ -10,9 +10,14 @@ export default class OptionLineFormatter extends BaseFormatter {
 					.replace(`${process.cwd()}/`, this.config.baseDir)
 					.match(/\(?(\S*:\d+:\d+)\)?/)[1];
 		
+		const message =
+			data.msg ||
+			data.message ||
+			(data.error && data.error.message ? data.error.message : '');
+		
 		return  `${this.config.colors[data.level].level} ` + // Log level
 				`${this.config.colors.date(timeString)} ` + // Time
 				`${this.config.colors[data.level].source(source)} ` + // Path source
-				`${data.msg || data.message || ''}`;
+				`${message}`;
 	}
 }

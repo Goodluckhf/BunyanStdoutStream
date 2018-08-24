@@ -3,7 +3,7 @@ import clc from 'cli-color';
 export default {
 	
 	// Maximum nested object parsing
-	maxDepth: 5,
+	maxDepth: 7,
 	
 	// if set false array will be format not like object ([...])
 	convertArrayLikeObject: true,

@@ -18,7 +18,7 @@ const excludeDefaultKeysS = Symbol('excludeDefaultKeys');
 export default class BunyanStdoutStream {
 	constructor(config = {}, formatters = defaultFormatters, stream = process.stdout) {
 		const formattersClasses = { ...defaultFormatters, ...formatters };
-		this.config             = deepExtend(defaultConfig, config);
+		this.config             = deepExtend({}, defaultConfig, config);
 		
 		this.optionLineFormatter = new formattersClasses.OptionLineFormatter(this.config);
 		this.arrayFormatter      = new formattersClasses.ArrayFormatter(this.config);
