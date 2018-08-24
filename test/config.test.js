@@ -11,19 +11,14 @@ describe('Config', () => {
 		expect(stdoutStream.optionLineFormatter).to.be.instanceOf(CustomFormatter);
 	});
 	
-	describe('config color can be change for', () => {
-		[30, 40, 50].forEach((level) => {
-			it(`level: ${level}`, () => {
-				const expectedValue = clc.red('test');
-				const stdoutStream = new StdoutStream({
-					colors: {
-						[level]: {
-							level: expectedValue,
-						},
-					},
-				});
+	describe('default colours should be work', () => {
+		[[30, 'blue'], [40, 'yellow'], [50, 'red']].forEach((pair) => {
+			it(`level: ${pair}`, () => {
+				const message       = 'test';
+				const expectedValue = clc[pair[1]](message);
+				const stdoutStream  = new StdoutStream();
 				
-				expect(stdoutStream.config.colors[level].level).to.be.equal(expectedValue);
+				expect(stdoutStream.config.colors[pair[0]].source(message)).to.be.equal(expectedValue);
 			});
 		});
 	});
