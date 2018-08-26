@@ -67,7 +67,9 @@ export default class BunyanStdoutStream {
 			return this.config.colors.object.system('Function');
 		}
 		
-		if (variable instanceof BSON.ObjectId) {
+		if (variable instanceof BSON.ObjectId || //eslint-disable-line no-mixed-operators
+			variable.constructor && variable.constructor.name.toLowerCase() === 'objectid' //eslint-disable-line no-mixed-operators
+		) {
 			const startSequence = this.config.colors.object.system('ObjectId("');
 			const endSequence   = this.config.colors.object.system('")');
 			
