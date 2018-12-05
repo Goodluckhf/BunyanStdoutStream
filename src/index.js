@@ -25,6 +25,7 @@ export default class BunyanStdoutStream {
 		this.errorFormatter      = new formattersClasses.ErrorFormatter(this.config);
 		this.objectFormatter     = new formattersClasses.ObjectFormatter(this.config);
 		
+		this.objectsForCircularChecks = new WeakMap();
 		this.stream = stream;
 	}
 	
@@ -77,6 +78,13 @@ export default class BunyanStdoutStream {
 		}
 		
 		if (typeof variable === 'object') {
+			if (this.objectsForCircularChecks.has(variable)) {
+				if (this.objectsForCircularChecks.get(variable) < depth + 1) {
+					return this.config.colors.object.system('Circular');
+				}
+			}
+			
+			this.objectsForCircularChecks.set(variable, depth + 1);
 			return this.objectFormatter.format(variable, depth, this.formatVariable.bind(this));
 		}
 		
@@ -102,6 +110,7 @@ export default class BunyanStdoutStream {
 	}
 	
 	write(data) {
+		this.objectsForCircularChecks = new WeakMap();
 		return this.stream.write(this.createStringFromVariable(data));
 	}
 }

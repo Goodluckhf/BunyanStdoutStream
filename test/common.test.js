@@ -1,6 +1,8 @@
-import { expect } from 'chai';
-import BSON       from 'bson';
+import { expect }         from 'chai';
+import BSON               from 'bson';
+import { cloneDeep }      from 'lodash';
 import BunyanStdoutStream from '../src';
+import config             from '../src/config';
 
 describe('BunyanStdoutStream', function () {
 	beforeEach(() => {
@@ -47,6 +49,36 @@ describe('BunyanStdoutStream', function () {
 				const result = this.bunyanStream.formatVariable(testValue);
 				expect(result).to.be.a('string');
 			});
+		});
+		
+		it('should return "circular"', () => {
+			const clonnedConfig = cloneDeep(config);
+			clonnedConfig.object = {
+				indent: () => '',
+				key   : () => '',
+				system: () => '',
+			};
+			this.bunyanStream.config = clonnedConfig;
+			const object1 = {};
+			const object2 = {};
+			object1.fu = object2;
+			object2.fu = object1;
+			const result = this.bunyanStream.formatVariable(object1);
+			expect(result).to.include('Circular');
+		});
+		
+		it('should not return "circular" if the same object exists on the same level', () => {
+			const clonnedConfig = cloneDeep(config);
+			clonnedConfig.object = {
+				indent: () => '',
+				key   : () => '',
+				system: () => '',
+			};
+			this.bunyanStream.config = clonnedConfig;
+			const object1 = { a: 1 };
+			
+			const result = this.bunyanStream.formatVariable([object1, object1]);
+			expect(result).to.not.include('Circular');
 		});
 	});
 });
