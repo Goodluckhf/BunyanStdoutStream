@@ -27,7 +27,7 @@ describe('BunyanStdoutStream', function () {
 	
 	it('Should parse objectId string', () => {
 		const objectIdString = '5b6f28ac588b35524fd5edee';
-		const testValue = { id: BSON.ObjectId(objectIdString) };
+		const testValue = { id: new BSON.ObjectId(objectIdString) };
 		const result    = this.bunyanStream.formatVariable(testValue);
 		expect(result).to.be.include(objectIdString);
 	});
