@@ -1,5 +1,7 @@
 # BunyanStdoutStream
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Goodluckhf/BunyanStdoutStream.svg)](https://greenkeeper.io/)
+
 ![Travis](https://img.shields.io/travis/Goodluckhf/BunyanStdoutStream/master.svg?style=flat-square)
 ![Coveralls github branch](https://img.shields.io/coveralls/github/Goodluckhf/BunyanStdoutStream/master.svg?style=flat-square)
 ![node](https://img.shields.io/node/v/bunyan-stdout-stream.svg?style=flat-square)
