@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --ui bdd --reporter spec --require @babel/register ./test/*.test.js ./test/**/*.test.js",
-    "test:coverage:dev": "nyc --reporter=text --require @babel/register mocha --ui bdd --reporter spec --require babel-register ./test/*.test.js ./test/**/*.test.js",
-    "test:coverage": "nyc --reporter=lcov --require @babel/register mocha --ui bdd --reporter spec --require babel-register ./test/*.test.js ./test/**/*.test.js",
+    "test:coverage:dev": "nyc --reporter=text --require @babel/register mocha --ui bdd --reporter spec --require @babel/register ./test/*.test.js ./test/**/*.test.js",
+    "test:coverage": "nyc --reporter=lcov --require @babel/register mocha --ui bdd --reporter spec --require @babel/register ./test/*.test.js ./test/**/*.test.js",
     "lint": "eslint --ignore-path .gitignore \"**/*.js\"",
     "report-coverage": "cat coverage/lcov.info | coveralls",
     "prebuild": "rimraf ./dist",
@@ -119,7 +119,6 @@
           "targets": {
             "node": "current"
           },
-          "useBuiltIns": "usage",
           "loose": true
         }
       ]
