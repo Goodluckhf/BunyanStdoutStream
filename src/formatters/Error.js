@@ -27,9 +27,7 @@ export default class ErrorFormatter extends BaseFormatter {
 			throw new Error('The type of value should be "Error"');
 		}
 		// stack can be present in different key
-		const stackKey = Object.keys(data).find((key) => {
-			return /^stack/.test(key) && typeof data[key] === 'string';
-		});
+		const stackKey = Object.keys(data).find(key => /^stack/.test(key) && typeof data[key] === 'string');
 		
 		if (stackKey) {
 			// eslint-disable-next-line no-param-reassign
@@ -41,8 +39,8 @@ export default class ErrorFormatter extends BaseFormatter {
 			...data,
 		}, depth);
 		
-		return  `${keyValuesString}` +
-				`${this._buildIndentString(depth + 1)}` +
-				`${this.config.colors.object.key('stack', 1)}: ${this.formatErrorStack(data.stack, depth + 1)}`;
+		return  `${keyValuesString}`
+				+ `${this._buildIndentString(depth + 1)}`
+				+ `${this.config.colors.object.key('stack', 1)}: ${this.formatErrorStack(data.stack, depth + 1)}`;
 	}
 }

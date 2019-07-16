@@ -9,9 +9,7 @@ export default class BaseFormatter {
 	}
 	
 	_buildIndentString(count) {
-		const indentString = Array.from({ length: count - 1 }).reduce((str, _, key) => {
-			return `${str}${this.config.colors.object.indent(key, false)}`;
-		}, '');
+		const indentString = Array.from({ length: count - 1 }).reduce((str, _, key) => `${str}${this.config.colors.object.indent(key, false)}`, '');
 		
 		return `${this.config.colors.object.indent()}${indentString}`;
 	}
