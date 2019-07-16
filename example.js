@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import bunyan from 'bunyan';
 import BSON from 'bson';
-import StdoutStream from './src/';
+import StdoutStream from './src';
 
 
 const logger = bunyan.createLogger({
