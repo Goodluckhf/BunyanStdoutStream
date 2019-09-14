@@ -50,7 +50,7 @@
     "bunyan": "^1.8.12",
     "chai": "^4.1.2",
     "coveralls": "^3.0.1",
-    "eslint": "^6.0.1",
+    "eslint": "^6.4.0",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-plugin-flowtype": "^3.11.1",
     "eslint-plugin-import": "^2.12.0",
