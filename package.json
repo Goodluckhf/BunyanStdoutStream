@@ -35,7 +35,7 @@
   "author": "Goodluckhf <Goodluckhf@yandex.ru>",
   "license": "MIT",
   "dependencies": {
-    "bson": "4.0.2",
+    "bson": "4.0.3",
     "cli-color": "1.4.0",
     "deep-extend": "0.6.0",
     "moment": "2.24.0"
